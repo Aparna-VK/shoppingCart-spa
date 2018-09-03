@@ -56,7 +56,21 @@ export const addProductToBucket = (result) => {
 */
 
 
-
   console.log("in api",result);
 
 };
+
+export const deleteFromBucket = (result) => {
+  //api call to delete product
+
+ /* return fetch(url + '/' + result, {
+    method: 'delete'
+  })
+  .then(response => response.json());
+
+  */
+
+  console.log("result");
+
+};
+

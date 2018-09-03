@@ -1,8 +1,9 @@
 import Product from './Product';
 import BackButton from './Button';
+import DeleteButton from './Button';
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { fetchInCartProducts} from '../actions';
+import { fetchInCartProducts, removeFromCart} from '../actions';
 
 const mapStateToProps = state => ({
     products:state.functions.products,
@@ -10,8 +11,16 @@ const mapStateToProps = state => ({
   });
 
   const mapDispatchToProps = {
-    fetchInCartProducts : fetchInCartProducts
+    fetchInCartProducts : fetchInCartProducts,
+    removeFromCart:removeFromCart
   };
+ 
+   const confirmDelete = (product) => {
+    if(window.confirm("Press a button!")){
+            alert('successfully deleted')
+            this.props.removeFromCart(product);
+    }
+   };
 
 
 class CartList extends Component
@@ -26,6 +35,7 @@ class CartList extends Component
                             <ul>
                                 {this.props.cart.map(product => (
                                     <Product key = {product.id} {...product}>
+                                    <DeleteButton message={"Delete"} onClick={confirmDelete} />
                                     </Product>
                                 ))}
                                  <BackButton message={"Back"} onClick={()=>{window.open("http://localhost:3000/") }} />
@@ -34,6 +44,5 @@ class CartList extends Component
                         );
       }
      
-
 };
 export default connect(mapStateToProps, mapDispatchToProps)(CartList);

@@ -1,5 +1,5 @@
 
-import {getproduct,fetchBucket,addProductToBucket} from '../api';
+import {getproduct,fetchBucket,addProductToBucket, deleteFromBucket} from '../api';
 
 
 export const getProductsr = () =>{
@@ -27,10 +27,20 @@ export const fetchInCartProducts = () => {
   };
 }
 
+export const removeFromCart = (result) => {
+  deleteFromBucket(result);
+  const cartNew = fetchBucket();
+  return{
+    type:exampleActions.DELETE_FROM_CART,
+    value:cartNew
+  };
+}
+
  const exampleActions = {
   GET_PRODUCTS : "GET_PRODUCTS",
   ADD_TO_CART : "ADD_TO_CART",
-  GO_TO_CART :"GO_TO_CART"
+  GO_TO_CART :"GO_TO_CART",
+  DELETE_FROM_CART:"DELETE_FROM_CART"
 };
 //
 //export default getProductsr();
