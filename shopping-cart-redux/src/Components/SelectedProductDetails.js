@@ -1,5 +1,5 @@
 import React from "react";
-const displayOne = ({id,productName,prize,children}) =>{
+const SelectedProductDetails = ({productName,prize,children}) =>{
   return(
         <li>
         {productName}<br/>
@@ -11,4 +11,4 @@ const displayOne = ({id,productName,prize,children}) =>{
       );
 }
 
-export default displayOne;
+export default SelectedProductDetails;

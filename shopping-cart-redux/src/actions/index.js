@@ -2,15 +2,6 @@
 import {getproduct,fetchBucket} from '../api';
 
 
-// const getProductsr = () => async dispatch => {
-//   const products = await getproduct();
-//   dispatch({
-//     type: exampleActions.GET_PRODUCTS,
-//     value : products
-//   });
-// };
-
-
 export const getProductsr = () =>{
     const products =  getproduct();
    return {
@@ -25,7 +16,7 @@ export const addToCart = () => {
   };
 }
 
-export const goToCart = () => {
+export const fetchInCartProducts = () => {
   const cartNew = fetchBucket();
   return{
     type:exampleActions.GO_TO_CART,

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { getProductsr ,addToCart ,goToCart} from './actions';
+import { getProductsr ,addToCart ,fetchInCartProducts} from './actions';
 import ProductList from './Components/ProductList'
 import SelectedProduct from './Components/SelectedProduct'
 import {connect} from 'react-redux';
@@ -9,13 +9,13 @@ import CartList from './Components/CartList'
 
 
 const mapStateToProps = state => ({
-  products:state.getProducts.products,
-  cart:state.getProducts.cart
+  products:state.actions.products,
+  cart:state.actions.cart
 });
 
 const mapDispatchToProps = dispatch => ({
   getProducts : () => dispatch(getProductsr()),
-  goToCart : () => dispatch(goToCart()),
+  fetchInCartProducts : () => dispatch(fetchInCartProducts()),
   addToCart : () => dispatch(addToCart())
 });
 
@@ -26,13 +26,12 @@ class App extends Component {
     }
 
   render() {
-    console.log("in app",this.props.cart)
     return (
     <div className="App">
       <Router>
         <div>
           <Route exact path ="/" render={() =><ProductList products= {this.props.products} />}/>
-          <Route path="/product/:id"   render={() =><SelectedProduct products={this.props.products} addToCart={this.props.addToCart} goToCart={this.props.goToCart} />}/>
+          <Route path="/product/:id"   render={() =><SelectedProduct products={this.props.products} addToCart={this.props.addToCart} fetchInCartProducts={this.props.fetchInCartProducts} />}/>
           <Route path ="/cart/"  render={() =><CartList inCartProducts = {this.props.cart} />}/>
         </div>      
       </Router>
