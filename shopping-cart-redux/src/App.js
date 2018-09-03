@@ -9,15 +9,15 @@ import CartList from './Components/CartList'
 
 
 const mapStateToProps = state => ({
-  products:state.actions.products,
-  cart:state.actions.cart
+  products:state.functions.products,
+  cart:state.functions.cart
 });
 
-const mapDispatchToProps = dispatch => ({
-  getProducts : () => dispatch(getProductsr()),
-  fetchInCartProducts : () => dispatch(fetchInCartProducts()),
-  addToCart : () => dispatch(addToCart())
-});
+const mapDispatchToProps =  {
+  getProducts: getProductsr,
+  fetchInCartProducts: fetchInCartProducts,
+  addToCart: addToCart
+};
 
 class App extends Component {
 
@@ -26,6 +26,7 @@ class App extends Component {
     }
 
   render() {
+    console.log(this.props.products);
     return (
     <div className="App">
       <Router>

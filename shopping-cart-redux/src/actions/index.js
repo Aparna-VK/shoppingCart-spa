@@ -1,16 +1,19 @@
 
-import {getproduct,fetchBucket} from '../api';
+import {getproduct,fetchBucket,addProductToBucket} from '../api';
 
 
 export const getProductsr = () =>{
     const products =  getproduct();
+    console.log("in action",products);
    return {
        type: exampleActions.GET_PRODUCTS,
        value : products
       };
 }
 
-export const addToCart = () => {
+export const addToCart = (result) => {
+  console.log(result);
+  addProductToBucket(result);
   return{
     type:exampleActions.ADD_TO_CART,
   };

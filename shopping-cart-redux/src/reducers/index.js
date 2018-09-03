@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
-import  actions  from "./actions";
+import  functions  from "./functions";
 
 
 export default combineReducers({
-    actions
+    functions
 });

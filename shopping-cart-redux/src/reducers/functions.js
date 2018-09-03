@@ -10,10 +10,10 @@ const goToCart = () => {
   window.open("http://localhost:3000/cart");
 }
 
-const actions = (state = initialState,action ) => {
+const functions = (state = initialState,action ) => {
   switch(action.type){
-    case 'GET_PRODUCTS':getproduct();
-
+    case 'GET_PRODUCTS'://getproduct();
+                console.log("in functions",action.value);
                 return {
                         ...state,
                         products:action.value
@@ -21,7 +21,7 @@ const actions = (state = initialState,action ) => {
                       break;
     case 'ADD_TO_CART': 
                       console.log('in add to cart')
-                      addProductToBucket();
+                      //addProductToBucket();
                 return{
                       ...state
                       };
@@ -39,4 +39,4 @@ const actions = (state = initialState,action ) => {
  };
 
 
-export default actions;
+export default functions;
