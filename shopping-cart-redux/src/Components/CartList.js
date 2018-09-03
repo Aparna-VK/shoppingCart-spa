@@ -5,13 +5,13 @@ import {connect} from 'react-redux';
 import { fetchInCartProducts} from '../actions';
 
 const mapStateToProps = state => ({
-    products:state.actions.products,
-    cart:state.actions.cart
+    products:state.functions.products,
+    cart:state.functions.cart
   });
 
-  const mapDispatchToProps = dispatch => ({
+  const mapDispatchToProps = {
     fetchInCartProducts : fetchInCartProducts
-  });
+  };
 
 
 class CartList extends Component
