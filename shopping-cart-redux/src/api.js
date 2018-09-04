@@ -6,31 +6,31 @@ export const getproduct = () => {
 
  //api call to get products
 
-/*  fetch('http:/localhost:3000/products')
+  fetch('http:/localhost:3000/products')
   .then(function(response) {
     return response.json();
   })
   .then(function(myJson) {
     console.log(JSON.stringify(myJson));
   });
-*/
 
 
-  return products;
+
+//  return products;
 };
 
 export const fetchBucket = () => {
 //api call to get products in bucket
 
-/*fetch('http:/localhost:3000/basket')
+fetch('http:/localhost:3000/basket')
 .then(function(response) {
   return response.json();
 })
 .then(function(myJson) {
   console.log(JSON.stringify(myJson));
 });
-*/
-  return cart;
+
+//  return cart;
 
 };
 
@@ -38,7 +38,7 @@ export const fetchBucket = () => {
 export const addProductToBucket = (result) => {
 //api call to post product to bucket
 
- /* fetch("http:/localhost:3000/basket",
+  fetch("http:/localhost:3000/basket",
 {
     method: "POST",
     // whatever data you want to post with a key-value pair
@@ -52,18 +52,18 @@ export const addProductToBucket = (result) => {
 { 
     console.log(response);
 });
-*/
 
 
-  console.log("in api",result);
+
+//  console.log("in api",result);
 
 };
 
 export const deleteFromBucket = (result) => {
   //api call to delete product
 
- /* return fetch('http:/localhost:3000/basket' , {
-    method: 'delete'
+  return fetch('http:/localhost:3000/basket' , {
+    method: 'delete',
     body: 'id:'+result,
      headers: 
     {
@@ -72,9 +72,9 @@ export const deleteFromBucket = (result) => {
   })
   .then(response => response.json());
 
-  */
+  
 
-  console.log("result",result);
+  //console.log("result",result);
 
 };
 
