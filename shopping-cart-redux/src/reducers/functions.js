@@ -7,21 +7,26 @@ const initialState = {
 };
 
 const goToCart = () => {
-  window.open("http://localhost:3000/cart");
+  window.open("http://localhost:3000/basket");
 }
 
 const functions = (state = initialState,action ) => {
   switch(action.type){
-    case 'GET_PRODUCTS'://getproduct();
-                console.log("in functions",action.value);
+    case 'DELETE_FROM_CART' :
+                      console.log("action.value",action.value)
+                      return{
+                        ...state,
+                        cart:action.value
+                      };
+                      break;
+
+    case 'GET_PRODUCTS':
                 return {
                         ...state,
                         products:action.value
                       };
                       break;
     case 'ADD_TO_CART': 
-                      console.log('in add to cart')
-                      //addProductToBucket();
                 return{
                       ...state
                       };
@@ -33,6 +38,7 @@ const functions = (state = initialState,action ) => {
                      cart:action.value
                      };
                      break;
+
     default : return state;
    }
 

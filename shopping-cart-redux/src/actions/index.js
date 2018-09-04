@@ -27,13 +27,13 @@ export const fetchInCartProducts = () => {
   };
 }
 
-export const removeFromCart = (result) => {
+export const removeFromCart = (result) =>{
   deleteFromBucket(result);
-  const cartNew = fetchBucket();
-  return{
-    type:exampleActions.DELETE_FROM_CART,
-    value:cartNew
-  };
+  const cartNew = fetchBucket(); 
+  return {
+     type: exampleActions.DELETE_FROM_CART,
+     value : cartNew
+    };
 }
 
  const exampleActions = {

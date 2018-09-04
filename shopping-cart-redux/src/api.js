@@ -30,7 +30,6 @@ export const fetchBucket = () => {
   console.log(JSON.stringify(myJson));
 });
 */
-
   return cart;
 
 };

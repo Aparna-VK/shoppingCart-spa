@@ -33,7 +33,7 @@ class App extends Component {
         <div>
           <Route exact path ="/" render={() =><ProductList products= {this.props.products} />}/>
           <Route path="/product/:id"   render={() =><SelectedProduct products={this.props.products} addToCart={this.props.addToCart} fetchInCartProducts={this.props.fetchInCartProducts} />}/>
-          <Route path ="/cart/"  render={() =><CartList inCartProducts = {this.props.cart} />}/>
+          <Route path ="/basket/"  render={() =><CartList inCartProducts = {this.props.cart} />}/>
         </div>      
       </Router>
     </div>

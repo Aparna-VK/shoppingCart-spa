@@ -14,14 +14,7 @@ const mapStateToProps = state => ({
     fetchInCartProducts : fetchInCartProducts,
     removeFromCart:removeFromCart
   };
- 
-   const confirmDelete = (product) => {
-    if(window.confirm("Remove from cart !")){
-            alert('successfully deleted')
-            const product1 = product
-            removeFromCart(product);
-    }
-   };
+
 
 
 class CartList extends Component
@@ -37,7 +30,8 @@ class CartList extends Component
                             <ul>
                                 {this.props.cart.map(product => (
                                     <Product key = {product.id} {...product}>
-                                    <DeleteButton message={"Delete"} onClick={()=>{confirmDelete(product)}} />
+                                    <DeleteButton message={"Delete"} 
+                                    onClick={()=>{if(window.confirm("Remove from cart !")){this.props.removeFromCart(product.id);alert('succesfully deleted')}}} />
                                     </Product>
                                 ))}
                                  <BackButton message={"Back"} onClick={()=>{window.open("http://localhost:3000/") }} />
