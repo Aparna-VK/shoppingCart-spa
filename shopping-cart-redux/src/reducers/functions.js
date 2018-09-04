@@ -1,4 +1,3 @@
-import {getproduct,addProductToBucket} from '../api';
 
 
 const initialState = {
@@ -6,20 +5,15 @@ const initialState = {
       cart : []
 };
 
-const goToCart = () => {
-  window.open("http://localhost:3000/basket");
-}
 
 const functions = (state = initialState,action ) => {
   switch(action.type){
     case 'DELETE_FROM_CART' :
-                      console.log("action.value",action.value)
                       return{
                         ...state,
                         cart:action.value
                       };
                       break;
-
     case 'GET_PRODUCTS':
                 return {
                         ...state,
@@ -32,7 +26,7 @@ const functions = (state = initialState,action ) => {
                       };
                       break;
      case 'GO_TO_CART':
-                      goToCart();
+                     window.open("http://localhost:3000/basket");
                 return{
                       ...state  ,
                      cart:action.value
