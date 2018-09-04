@@ -6,7 +6,7 @@ export const getproduct = () => {
 
  //api call to get products
 
-  fetch('http:/localhost:3000/products')
+  fetch('http://localhost:3000/products')
   .then(function(response) {
     return response.json();
   })
@@ -22,7 +22,7 @@ export const getproduct = () => {
 export const fetchBucket = () => {
 //api call to get products in bucket
 
-fetch('http:/localhost:3000/basket')
+fetch('http://localhost:3000/basket')
 .then(function(response) {
   return response.json();
 })
@@ -38,7 +38,7 @@ fetch('http:/localhost:3000/basket')
 export const addProductToBucket = (result) => {
 //api call to post product to bucket
 
-  fetch("http:/localhost:3000/basket",
+  fetch("http://localhost:3000/basket",
 {
     method: "POST",
     // whatever data you want to post with a key-value pair
@@ -62,7 +62,7 @@ export const addProductToBucket = (result) => {
 export const deleteFromBucket = (result) => {
   //api call to delete product
 
-  return fetch('http:/localhost:3000/basket' , {
+  return fetch('http://localhost:3000/basket' , {
     method: 'delete',
     body: 'id:'+result,
      headers: 
