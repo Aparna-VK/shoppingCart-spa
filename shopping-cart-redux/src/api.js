@@ -63,14 +63,14 @@ export const addProductToBucket = (result) => {
 export const deleteFromBucket = (result) => {
   //api call to delete product
 
- /* return fetch(url + '/' + result, {
+ /* return fetch(http:/localhost:3000/basket + '/' + result, {
     method: 'delete'
   })
   .then(response => response.json());
 
   */
 
-  console.log("result");
+  console.log("result",result);
 
 };
 

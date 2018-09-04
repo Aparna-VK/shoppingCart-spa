@@ -16,9 +16,10 @@ const mapStateToProps = state => ({
   };
  
    const confirmDelete = (product) => {
-    if(window.confirm("Press a button!")){
+    if(window.confirm("Remove from cart !")){
             alert('successfully deleted')
-            this.props.removeFromCart(product);
+            const product1 = product
+            removeFromCart(product);
     }
    };
 
@@ -28,6 +29,7 @@ class CartList extends Component
     componentDidMount() {
         this.props.fetchInCartProducts();
       }
+   
       render(){
                 return(
                         <React.Fragment>
@@ -35,7 +37,7 @@ class CartList extends Component
                             <ul>
                                 {this.props.cart.map(product => (
                                     <Product key = {product.id} {...product}>
-                                    <DeleteButton message={"Delete"} onClick={confirmDelete} />
+                                    <DeleteButton message={"Delete"} onClick={()=>{confirmDelete(product)}} />
                                     </Product>
                                 ))}
                                  <BackButton message={"Back"} onClick={()=>{window.open("http://localhost:3000/") }} />
