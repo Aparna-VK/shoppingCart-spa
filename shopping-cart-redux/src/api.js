@@ -1,22 +1,16 @@
-import products from './products.json'
-import cart from './cart.json'
+//import products from './products.json'
+//import cart from './cart.json'
+
 
 
 export const getproduct = () => {
-
- //api call to get products
-
-  fetch('http://localhost:3000/products')
-  .then(function(response) {
+return fetch('http://localhost:3000/products')
+  .then((response)=>{
+    console.log("resolved",response);
     return response.json();
   })
-  .then(function(myJson) {
-    console.log(JSON.stringify(myJson));
-  });
-
-
-
-//  return products;
+  ;
+//return products;
 };
 
 export const fetchBucket = () => {
@@ -30,9 +24,9 @@ fetch('http://localhost:3000/basket')
   console.log(JSON.stringify(myJson));
 });
 
-//  return cart;
 
 };
+
 
 
 export const addProductToBucket = (result) => {
@@ -50,12 +44,12 @@ export const addProductToBucket = (result) => {
 
 }).then((response) => 
 { 
-    console.log(response);
+    console.log("addProductToBucket=========",response);
 });
 
 
 
-//  console.log("in api",result);
+ console.log("in api",result);
 
 };
 

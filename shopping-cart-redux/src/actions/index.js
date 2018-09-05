@@ -2,13 +2,24 @@
 import {getproduct,fetchBucket,addProductToBucket, deleteFromBucket} from '../api';
 
 
+
+
+
 export const getProductsr = () =>{
-    const products =  getproduct();
-    console.log("in action",products);
-   return {
+   // var products =  getproduct();
+    //console.log("products in action",products);
+  //   products.then(result=>{console.log("products------------->>>>>",result)   
+  // }) ;
+
+
+  var products =   getproduct().then(result=>{console.log("products------------->>>>>",result)   
+                   return result
+  }) ;
+    console.log("-======-",products);
+    return {
        type: exampleActions.GET_PRODUCTS,
        value : products
-      };
+    };
 }
 
 export const addToCart = (result) => {

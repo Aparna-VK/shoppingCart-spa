@@ -13,6 +13,9 @@ const mapStateToProps = state => ({
   cart:state.functions.cart
 });
 
+
+
+
 const mapDispatchToProps =  {
   getProducts: getProductsr,
   fetchInCartProducts: fetchInCartProducts,
@@ -21,9 +24,9 @@ const mapDispatchToProps =  {
 
 class App extends Component {
 
-    componentDidMount() {
-      this.props.getProducts();
-    }
+    // componentDidMount() {
+    //   this.props.getProducts();
+    // }
 
   render() {
     console.log(this.props.products);
@@ -31,9 +34,9 @@ class App extends Component {
     <div className="App">
       <Router>
         <div>
-          <Route exact path ="/" render={() =><ProductList products= {this.props.products} />}/>
+          <Route exact path ="/" render={() =><ProductList />}/>
           <Route path="/product/:id"   render={() =><SelectedProduct products={this.props.products} addToCart={this.props.addToCart} fetchInCartProducts={this.props.fetchInCartProducts} />}/>
-          <Route path ="/basket/"  render={() =><CartList inCartProducts = {this.props.cart} />}/>
+          <Route path ="/basket/"  render={() =><CartList />}/>
         </div>      
       </Router>
     </div>
