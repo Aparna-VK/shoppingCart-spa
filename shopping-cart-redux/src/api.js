@@ -1,23 +1,3 @@
-//import products from './products.json'
-//import cart from './cart.json'
-
-
-
-  // fetch('http://10.9.4.83:3000/products')
-  // .then(function(response) {
-  //   return response.json();
-  // })
-  // .then(function(myJson) {
-  //   console.log(JSON.stringify(myJson));
-  // });
-
-  // // return new Promise(resolve => {
-  // //   setTimeout(() => {
-  // //     resolve(products);
-  // //   }, 3000);
-  // // });
-  // //return products;
-
 
 export const getproduct = () => {
 return fetch('http://localhost:3000/products')
@@ -26,12 +6,10 @@ return fetch('http://localhost:3000/products')
     return response.json();
   })
   ;
-//return products;
 };
 
 export const fetchBucket = () => {
-//api call to get products in bucket
-
+//api call to fetch products in bucket
 return fetch('http://localhost:3000/basket')
 .then((response)=>{
   console.log("resolved",response);
@@ -55,7 +33,6 @@ fetch("http://10.9.4.83:3000/basket", {
     'Content-Type': 'application/json'
   },
 
-  //make sure to serialize your JSON body
   body: JSON.stringify({
     id: result[0].id,
     productName: result[0].productName,
@@ -65,6 +42,7 @@ fetch("http://10.9.4.83:3000/basket", {
 })
 .then( (response) => { 
    //do something awesome that makes the world a better place
+   console.log("successfully added")
 });
 
 
@@ -82,7 +60,6 @@ export const deleteFromBucket = (result) => {
         "Content-Type": "application/json"
     }
   });
-  //console.log("result",result);
 
 };
 
