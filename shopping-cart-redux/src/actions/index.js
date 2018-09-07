@@ -2,14 +2,26 @@
 import {getproduct,fetchBucket,addProductToBucket, deleteFromBucket} from '../api';
 
 
-export const getProductsr = () =>{
-    const products =  getproduct();
-    console.log("in action",products);
-   return {
-       type: exampleActions.GET_PRODUCTS,
-       value : products
-      };
-}
+// export const getProductsr = () =>{
+//     const products =  getproduct();
+//     console.log("in action",products);
+
+//    return {
+//        type: exampleActions.GET_PRODUCTS,
+//        value : products
+//       };
+// }
+
+
+
+export const getProductsr = () => async dispatch => {
+  const products = await getproduct();
+  dispatch({
+    type: exampleActions.GET_PRODUCTS,
+    value:products
+  });
+};
+
 
 export const addToCart = (result) => {
   console.log(result);

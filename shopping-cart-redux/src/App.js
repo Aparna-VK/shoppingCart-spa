@@ -13,11 +13,18 @@ const mapStateToProps = state => ({
   cart:state.functions.cart
 });
 
-const mapDispatchToProps =  {
-  getProducts: getProductsr,
-  fetchInCartProducts: fetchInCartProducts,
-  addToCart: addToCart
-};
+// const mapDispatchToProps =  {
+//   getProducts: getProductsr,
+//   fetchInCartProducts: fetchInCartProducts,
+//   addToCart: addToCart
+// };
+
+const mapDispatchToProps = dispatch => ({
+  getProducts: () => dispatch(getProductsr()),
+  addToCart: productId => dispatch(addToCart(productId)),
+  fetchInCartProducts: () => dispatch(fetchInCartProducts()),
+});
+
 
 class App extends Component {
 
