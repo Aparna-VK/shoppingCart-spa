@@ -10,7 +10,7 @@ const initialState = {
 const functions = (state = initialState,action ) => {
   
   switch(action.type){
-    case 'DELETE_FROM_CART' :
+    case 'DELETE_FROM_CART' :console.log("action,value",action.value);
                       return{
                         ...state,
                         cart:action.value
@@ -28,7 +28,7 @@ const functions = (state = initialState,action ) => {
                       };
                       break;
      case 'GO_TO_CART':
-                     window.open("http://localhost:3001/basket");
+                     console.log('55555',action.value);
                 return{
                       ...state  ,
                      cart:action.value

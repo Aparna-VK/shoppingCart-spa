@@ -38,12 +38,13 @@ const mapDispatchToProps = dispatch => ({
 
 class App extends Component {
 
-    // componentDidMount() {
-    //   this.props.getProducts();
-    // }
+     componentDidMount() {
+       this.props.getProducts();
+
+     }
 
   render() {
-    console.log(this.props.products);
+    console.log("``````````",this.props.products);
     return (
     <div className="App">
       <Router>

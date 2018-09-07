@@ -8,6 +8,7 @@ import GoToCartButton from './Button';
 const SelectedProduct = ({products ,addToCart ,fetchInCartProducts}) => {
  var id = window.location.pathname.split('=')[1]
   const result = products.filter(product => product.id == id);
+  console.log("id----------",products)
   const handleClick = () => {
     addToCart(result);
   };
@@ -16,7 +17,7 @@ const SelectedProduct = ({products ,addToCart ,fetchInCartProducts}) => {
     <ul>
     <SelectedProductDetails key = {result.length && result[0].id} {...result[0]}/><br/>
     <AddToCartButton message="Add to Cart" onClick={handleClick}/><br/><br/>
-    <GoToCartButton message="Go To Cart" onClick={fetchInCartProducts.bind(null,result.length && result[0].id)} /> 
+    <GoToCartButton message="Go To Cart" onClick={fetchInCartProducts} /> 
     
     <br/>
    

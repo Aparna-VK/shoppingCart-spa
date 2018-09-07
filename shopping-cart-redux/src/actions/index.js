@@ -16,6 +16,7 @@ import {getproduct,fetchBucket,addProductToBucket, deleteFromBucket} from '../ap
 
 export const getProductsr = () => async dispatch => {
   const products = await getproduct();
+  console.log("--------------------->products",products);
   dispatch({
     type: exampleActions.GET_PRODUCTS,
     value:products
@@ -52,21 +53,36 @@ export const addToCart = (result) => {
   };
 }
 
-export const fetchInCartProducts = () => {
-  const cartNew = fetchBucket();
-  return{
-    type:exampleActions.GO_TO_CART,
-    value:cartNew
-  };
-}
+// export const fetchInCartProducts = () => {
+//   const cartNew = fetchBucket();
+//   return{
+//     type:exampleActions.GO_TO_CART,
+//     value:cartNew
+//   };
+// }
 
-export const removeFromCart = (result) =>{
-  deleteFromBucket(result);
-  const cartNew = fetchBucket(); 
-  return {
-     type: exampleActions.DELETE_FROM_CART,
-     value : cartNew
-    };
+export const fetchInCartProducts = () => async dispatch => {
+  window.open("http://localhost:3001/basket");
+
+  const cartNew = await fetchBucket();
+  console.log("--------------------->cart",cartNew);
+  dispatch({
+    type: exampleActions.GO_TO_CART,
+    value:cartNew
+  });
+};
+
+
+export const removeFromCart = (result) =>async dispatch =>{
+  //const cartNew = fetchInCartProducts();
+   deleteFromBucket(result);
+   const cartNew = await fetchBucket();
+
+  console.log("--------------------->cart",cartNew);
+  dispatch({
+    type: exampleActions.DELETE_FROM_CART,
+    value:cartNew
+  });
 }
 
  const exampleActions = {

@@ -19,7 +19,7 @@ const mapStateToProps = state => ({
 
 class CartList extends Component
 {
-    componentDidMount() {
+    componentWillMount() {
         this.props.fetchInCartProducts();
       }
    

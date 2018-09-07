@@ -32,73 +32,56 @@ return fetch('http://localhost:3000/products')
 export const fetchBucket = () => {
 //api call to get products in bucket
 
-fetch('http://10.9.4.83:3000/basket')
-.then(function(response) {
+return fetch('http://localhost:3000/basket')
+.then((response)=>{
+  console.log("resolved",response);
   return response.json();
 })
-.then(function(myJson) {
-  console.log(JSON.stringify(myJson));
-});
-
+;
 
 };
 
 
 
 export const addProductToBucket = (result) => {
+  console.log("result",result[0].id);
+
 //api call to post product to bucket
 
-//   fetch("http://10.9.4.83:3000/basket",
-// {
-//     method: "POST",
-//     // whatever data you want to post with a key-value pair
-//     body: result,
-//     headers: 
-//     {
-//         "Content-Type": "application/json"
-//     }
+fetch("http://10.9.4.83:3000/basket", {
+  method: "post",
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
 
-// }).then((response) => 
-// { 
-//     console.log(response);
-// });
-
-  fetch("http://localhost:3000/basket",
-{
-    method: "POST",
-    // whatever data you want to post with a key-value pair
-    body: result,
-    headers: 
-    {
-        "Content-Type": "application/json"
-    }
-
-}).then((response) => 
-{ 
-    console.log("addProductToBucket=========",response);
+  //make sure to serialize your JSON body
+  body: JSON.stringify({
+    id: result[0].id,
+    productName: result[0].productName,
+    prize: result[0].prize,
+    image: result[0].image
+  })
+})
+.then( (response) => { 
+   //do something awesome that makes the world a better place
 });
 
 
-
- console.log("in api",result);
 
 };
 
 export const deleteFromBucket = (result) => {
   //api call to delete product
 
-  // return fetch('http://localhost:3000/basket' , {
-  //   method: 'delete',
-  //   body: 'id:'+result,
-  //    headers: 
-  //   {
-  //       "Content-Type": "application/json"
-  //   }
-  // })
-  // .then(response => response.json());
-
-  
-
+  return fetch('http://localhost:3000/basket' , {
+    method: 'delete',
+    body: JSON.stringify({id:result}),
+     headers: 
+    {
+        "Content-Type": "application/json"
+    }
+  }).then(console.log("resut"));
   //console.log("result",result);
 
 };
