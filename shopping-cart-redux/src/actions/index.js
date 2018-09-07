@@ -23,6 +23,27 @@ export const getProductsr = () => async dispatch => {
 };
 
 
+
+
+
+// export const getProductsr = () =>{
+//    // var products =  getproduct();
+//     //console.log("products in action",products);
+//   //   products.then(result=>{console.log("products------------->>>>>",result)   
+//   // }) ;
+
+
+//   var products =   getproduct().then(result=>{console.log("products------------->>>>>",result)   
+//                    return result
+//   }) ;
+//     console.log("-======-",products);
+//     return {
+//        type: exampleActions.GET_PRODUCTS,
+//        value : products
+//     };
+// }
+
+
 export const addToCart = (result) => {
   console.log(result);
   addProductToBucket(result);

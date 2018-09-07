@@ -1,26 +1,32 @@
-import products from './products.json'
-import cart from './cart.json'
+//import products from './products.json'
+//import cart from './cart.json'
+
+
+
+  // fetch('http://10.9.4.83:3000/products')
+  // .then(function(response) {
+  //   return response.json();
+  // })
+  // .then(function(myJson) {
+  //   console.log(JSON.stringify(myJson));
+  // });
+
+  // // return new Promise(resolve => {
+  // //   setTimeout(() => {
+  // //     resolve(products);
+  // //   }, 3000);
+  // // });
+  // //return products;
 
 
 export const getproduct = () => {
-
- //api call to get products
-
-  fetch('http://10.9.4.83:3000/products')
-  .then(function(response) {
+return fetch('http://localhost:3000/products')
+  .then((response)=>{
+    console.log("resolved",response);
     return response.json();
   })
-  .then(function(myJson) {
-    console.log(JSON.stringify(myJson));
-  });
-
-  // return new Promise(resolve => {
-  //   setTimeout(() => {
-  //     resolve(products);
-  //   }, 3000);
-  // });
-  //return products;
-
+  ;
+//return products;
 };
 
 export const fetchBucket = () => {
@@ -34,9 +40,9 @@ fetch('http://10.9.4.83:3000/basket')
   console.log(JSON.stringify(myJson));
 });
 
-//  return cart;
 
 };
+
 
 
 export const addProductToBucket = (result) => {
@@ -57,9 +63,24 @@ export const addProductToBucket = (result) => {
 //     console.log(response);
 // });
 
+  fetch("http://localhost:3000/basket",
+{
+    method: "POST",
+    // whatever data you want to post with a key-value pair
+    body: result,
+    headers: 
+    {
+        "Content-Type": "application/json"
+    }
+
+}).then((response) => 
+{ 
+    console.log("addProductToBucket=========",response);
+});
 
 
-//  console.log("in api",result);
+
+ console.log("in api",result);
 
 };
 
