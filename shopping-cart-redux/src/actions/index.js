@@ -75,7 +75,7 @@ export const fetchInCartProducts = () => async dispatch => {
 
 export const removeFromCart = (result) =>async dispatch =>{
   //const cartNew = fetchInCartProducts();
-   deleteFromBucket(result);
+   await deleteFromBucket(result);
    const cartNew = await fetchBucket();
 
   console.log("--------------------->cart",cartNew);

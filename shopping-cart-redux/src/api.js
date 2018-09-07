@@ -81,7 +81,7 @@ export const deleteFromBucket = (result) => {
     {
         "Content-Type": "application/json"
     }
-  }).then(console.log("resut"));
+  });
   //console.log("result",result);
 
 };
