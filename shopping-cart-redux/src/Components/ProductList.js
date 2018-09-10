@@ -1,16 +1,3 @@
-// import Product from './Product';
-// import React from 'react';
-
-// export default ({products}) => {
-//  return(   <React.Fragment>
-//        { products.length !==0 && (<ul>
-//             {products.map(product => (
-//             <Product key = {product.id} {...product}>
-//             </Product>
-//             ))}
-//        </ul>)}
-//     </React.Fragment>)
-// };
 
 import Product from './Product';
 import React, { Component } from 'react';
