@@ -18,7 +18,7 @@ const mapStateToProps = state => ({
 
 class ProductList extends Component
 {
-     componentDidMount() {
+     componentWillMount() {
          this.props.getProductsr();
        }
    

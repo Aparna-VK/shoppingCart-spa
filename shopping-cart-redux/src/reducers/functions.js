@@ -41,8 +41,8 @@ const functions = (state = initialState,action ) => {
   
     case 'SUBMIT_CREDENTIALS': 
                               return{
-                                 ...state
-                              };
+                                 ...state                              
+                                };
                               break;
 
 

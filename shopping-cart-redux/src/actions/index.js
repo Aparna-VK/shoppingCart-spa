@@ -51,11 +51,14 @@ export const submitDetails = (userName,firstName,lastName,password) => {
 }
 
 
-export const submitCredentials = (userName,password) =>{
-  submit_credentials(userName,password);
-  return{
-    type:exampleActions.SUBMIT_CREDENTIALS
-  };
+export const submitCredentials = (userName,password)=>async dispatch =>{
+  const products=await getProductsr();
+  submit_credentials(userName,password).then(window.open("http://localhost:3000/product"));
+  //console.log("s",a)
+  dispatch({
+    type:exampleActions.SUBMIT_CREDENTIALS,
+    value:products
+  });
 }
 
  const exampleActions = {

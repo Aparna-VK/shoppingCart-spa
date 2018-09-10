@@ -42,7 +42,7 @@ const mapDispatchToProps = dispatch => ({
 
 class App extends Component {
 
-     componentDidMount() {
+     componentWillMount() {
        this.props.getProducts();
 
      }
@@ -56,7 +56,7 @@ class App extends Component {
           <Route exact path ="/" render={() => <SignUP submitDetails={this.props.submitDetails} /> }/>
           <Route exact path ="/login" render={() =>    <Login submitCredentials={this.props.submitCredentials}/>}/>
           <Route exact path ="/product" render={() =><ProductList />}/>
-          <Route path="/product/:id"   render={() =><SelectedProduct products={this.props.products} addToCart={this.props.addToCart} fetchInCartProducts={this.props.fetchInCartProducts} />}/>
+          <Route exact path="/product/:id"   render={() =><SelectedProduct products={this.props.products} addToCart={this.props.addToCart} fetchInCartProducts={this.props.fetchInCartProducts} />}/>
           <Route path ="/basket/"  render={() =><CartList />}/>
         </div>      
       </Router>

@@ -5,7 +5,7 @@ import cart from './cart.json'
 
 
 export const getproduct = () => {
-return fetch('http://localhost:3000/products')
+return fetch('http://localhost:3002/products')
   .then((response)=>{
     console.log("resolved",response);
     return response.json();
@@ -16,7 +16,7 @@ return fetch('http://localhost:3000/products')
 
 export const fetchBucket = () => {
 //api call to fetch products in bucket
-return fetch('http://localhost:3000/basket')
+return fetch('http://localhost:3002/basket')
 .then((response)=>{
   console.log("resolved",response);
   return response.json();
@@ -26,9 +26,9 @@ return fetch('http://localhost:3000/basket')
 
 };
 
-export const submit_details = (userName,firtName,lastName,password) => {
-console.log("in api",userName,firtName,lastName,password)
-  fetch('http://localhost:3000/deatails',{
+export const submit_details = (userName,firstName,lastName,password) => {
+console.log("in api",userName,firstName,lastName,password)
+  fetch('http://localhost:3002/signup',{
   method:"post",
   headers:{
     'Accept': 'application/json',
@@ -36,7 +36,7 @@ console.log("in api",userName,firtName,lastName,password)
   },
   body:JSON.stringify({
     userName:userName,
-    firtName:firtName,
+    firstName:firstName,
     lastName:lastName,
     password:password
   })
@@ -47,7 +47,7 @@ console.log("in api",userName,firtName,lastName,password)
 
 export const submit_credentials = (userName,password) => {
   console.log("in submit credentials",userName,password);
-  fetch('http://localhost:3000/details',{
+  return(fetch('http://localhost:3002/login',{
   method:"post",
   headers:{
     'Accept': 'application/json',
@@ -58,7 +58,11 @@ export const submit_credentials = (userName,password) => {
     password:password
   })
     
-    }  );
+    }).then((response)=>response.json())
+    .then(responseJson=>{if(responseJson.status=="LOGIN SUCCESS"){
+      console.log(responseJson.status);   
+        }
+    ;}))
   };
 
 export const addProductToBucket = (result) => {
@@ -66,7 +70,7 @@ export const addProductToBucket = (result) => {
 
 //api call to post product to bucket
 
-fetch("http://10.9.4.83:3000/basket", {
+fetch("http://10.9.4.83:3002/basket", {
   method: "post",
   headers: {
     'Accept': 'application/json',
@@ -92,7 +96,7 @@ fetch("http://10.9.4.83:3000/basket", {
 export const deleteFromBucket = (result) => {
   //api call to delete product
 
-  return fetch('http://localhost:3000/basket' , {
+  return fetch('http://localhost:3002/basket' , {
     method: 'delete',
     body: JSON.stringify({id:result}),
      headers: 
